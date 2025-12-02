@@ -1,0 +1,84 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.bubble-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 15px;
+    background: #e1e8ed;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.bubble {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #aecbe4);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.2), inset 0 0 10px rgba(255,255,255,0.5);
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: transparent; /* O texto "POP!" fica invisível até estourar */
+}
+
+.bubble:hover {
+    transform: scale(1.05);
+}
+
+/* O estado "estourado" */
+.bubble.popped {
+    background: #d1d9e0;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+    transform: scale(0.95);
+    color: #555;
+    cursor: default;
+}
+
+.btn-reset {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-reset:hover {
+    background-color: #ff4757;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+    .bubble-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    .bubble {
+        width: 50px;
+        height: 50px;
+    }
+}
